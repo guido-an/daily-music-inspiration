@@ -7,7 +7,6 @@ interface SelectedGenresProps {
 const SelectedGenres: React.FC<SelectedGenresProps> = ({ selectedGenres }) => {
   return (
     <>
-      <p><strong>Selected Genres</strong></p>
       {selectedGenres.map((genre: string) => (
         <p key={genre}>{genre}</p>
       ))}

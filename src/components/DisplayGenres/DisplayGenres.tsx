@@ -18,7 +18,7 @@ const DisplayGenres:React.FC<DisplayGenresProps> = ({ handleGenreClick }) => {
 
   return (
     <div>
-       <h2>Spotify Genres</h2>
+      <p>Select your style</p>
       <ul>
       {genres.map((genre: string, index: number) => (
           <GenreItem key={genre} genre={genre} handleGenreClick={handleGenreClick} />
