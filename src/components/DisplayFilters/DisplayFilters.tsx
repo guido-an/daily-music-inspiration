@@ -1,5 +1,5 @@
 import React from 'react';
-import { EnergyLevel } from '../../enums';
+import { EnergyLevel } from '../../types/enums';
 
 interface DisplayFiltersProps {
   numTracks: number;

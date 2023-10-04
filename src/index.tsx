@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import useSWR, { SWRConfig } from 'swr'
-import { swrConfig } from './swrConfig';
+import { swrConfig } from './config/swrConfig';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
