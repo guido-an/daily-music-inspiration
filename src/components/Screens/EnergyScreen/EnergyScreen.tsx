@@ -1,13 +1,32 @@
-import React from 'react'
-import ScreenProps from '../../../types/ScreenProps'
+import React, {useState, Dispatch, SetStateAction} from 'react'
 import Title from '../../Shared/Title/Title'
 import Button from '../../Shared/Button/Button'
+import EnergyFilters from './EnergyFilters/EnergyFilters'
+import { EnergyLevel } from '../../../types/enums'
 
-const EnergyScreen: React.FC<ScreenProps> = ({handleScreenChange}) => {
+interface EnergyScreenProps {
+    handleScreenChange: () => void;
+    energyLevel: EnergyLevel | null; 
+    setEnergyLevel: Dispatch<SetStateAction<EnergyLevel | null>>;
+  }
+
+const EnergyScreen: React.FC<EnergyScreenProps> = ({
+    handleScreenChange, 
+    energyLevel, 
+    setEnergyLevel
+}) => {
    return(
     <>
      <Title titleText='Energy screen' />
-     <Button handleScreenChange={handleScreenChange} buttonText="Continue" />
+     <EnergyFilters 
+         energyLevel={energyLevel} 
+         setEnergyLevel={setEnergyLevel}
+      />
+       <Button 
+          handleScreenChange={handleScreenChange} 
+          buttonText="Continue" 
+          disabled={energyLevel === null}
+      />
     </>
    )
 }

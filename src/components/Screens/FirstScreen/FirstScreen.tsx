@@ -1,9 +1,12 @@
 import React from 'react'
-import ScreenProps from '../../../types/ScreenProps'
 import Title from '../../Shared/Title/Title'
 import Button from '../../Shared/Button/Button'
 
-const FirstScreen: React.FC<ScreenProps> = ({handleScreenChange}) => {
+interface FirstScreenProps {
+   handleScreenChange: () => void
+}
+
+const FirstScreen: React.FC<FirstScreenProps> = ({handleScreenChange}) => {
    return(
     <>
     <Title titleText='First screen' />

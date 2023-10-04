@@ -1,13 +1,28 @@
 import React from 'react'
-import ScreenProps from '../../../types/ScreenProps'
 import Title from '../../Shared/Title/Title'
 import Button from '../../Shared/Button/Button'
+import GenresFilters from './GenresFilters/GenresFilters'
 
-const GenresScreen: React.FC<ScreenProps> = ({handleScreenChange}) => {
+interface GenresScreenProps { 
+    handleScreenChange: () => void;
+    handleGenreClick: (genre: string) => void;
+    selectedGenres: string[]
+}
+
+const GenresScreen: React.FC<GenresScreenProps> = ({
+    handleScreenChange, 
+    handleGenreClick,
+    selectedGenres
+}) => {
    return(
     <>
      <Title titleText='Genres screen' />
-     <Button handleScreenChange={handleScreenChange} buttonText="Continue" />
+     <GenresFilters handleGenreClick={handleGenreClick} />
+     <Button 
+        handleScreenChange={handleScreenChange} 
+        buttonText="Continue" 
+        disabled={selectedGenres.length === 0 && true}
+      />
     </>
    )
 }

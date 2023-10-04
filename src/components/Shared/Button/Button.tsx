@@ -2,11 +2,12 @@ import React from 'react'
 
 interface ButtonProps {
     handleScreenChange?: () => void;
-    buttonText: string
+    buttonText: string;
+    disabled?: boolean;
 }
 
-const Button: React.FC<ButtonProps> = ({handleScreenChange, buttonText}) => {
-   return <button onClick={handleScreenChange}>{buttonText}</button>
+const Button: React.FC<ButtonProps> = ({handleScreenChange, buttonText, disabled}) => {
+   return <button onClick={handleScreenChange} disabled={disabled}>{buttonText}</button>
 }
 
 export default Button
