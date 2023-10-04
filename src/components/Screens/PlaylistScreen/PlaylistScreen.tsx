@@ -1,35 +1,56 @@
-import React from 'react'
-import { useSpotifyRecommendations } from '../../../hooks/useSpotifyRecommendations'
+import React from 'react';
+import { useSpotifyRecommendations } from '../../../hooks/useSpotifyRecommendations';
 
 interface PlaylistScreenProps {
-   energyLevel: number;
-   selectedGenres: string[];
-   numTracks: number;
+  energyLevel: number;
+  selectedGenres: string[];
+  numTracks: number;
 }
 
 const PlaylistScreen: React.FC<PlaylistScreenProps> = ({
+  energyLevel,
+  selectedGenres,
+  numTracks,
+}) => {
+  const { recommendations, error, isLoading } = useSpotifyRecommendations({
     energyLevel,
     selectedGenres,
-    numTracks
-}) => {
-    const { recommendations, error, isLoading } = useSpotifyRecommendations({
-        energyLevel, 
-        selectedGenres, 
-        numTracks 
-    });
+    numTracks,
+  });
 
-    if (isLoading) {
-        return <div>Loading...</div>;
-      }
-      if (error) {
-        return <div>Error loading genres</div>;
-      }
+  console.log(recommendations)
 
-   return(
-    <>
-     <h1>Here your playlist</h1>
-    </>
-   )
-}
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+  if (error) {
+    return <div>Error loading genres</div>;
+  }
 
-export default PlaylistScreen
+  return (
+    <div>
+      <h1>Your Playlist</h1>
+      <ul>
+        {recommendations.map((track: any) => {
+            const { id, external_urls, name, artists, album, preview_url } = track
+            return(
+                <li key={id}>
+                  <a
+                    href={external_urls}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {name}
+                  </a>
+                  <p>Artists: {artists.map((artist: any) => artist.name).join(', ')}</p>
+                  <p>Album: {album.name}</p>
+                  <audio controls src={preview_url}></audio>
+                </li>
+              )
+        })}
+      </ul>
+    </div>
+  );
+};
+
+export default PlaylistScreen;
