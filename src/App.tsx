@@ -4,7 +4,8 @@ import EnergyScreen from './components/Screens/EnergyScreen/EnergyScreen';
 import { EnergyLevel } from './types/enums';
 import GenresScreen from './components/Screens/GenresScreen/GenresScreen';
 import NumTracksScreen from './components/Screens/NumTracksScreen/NumTracksScreen';
-import PlaylistScreen from './components/Screens/PlaylistScreen/PlaylistScreen';
+import CreateScreen from './components/Screens/CreateScreen/CreateScreen';
+import PlayListScreen from './components/Screens/PlaylistScreen/PlaylistScreen';
 
 const App: React.FC = () => {
   const [currentScreen, setCurrentScreen] = useState<string>('firstScreen');
@@ -42,12 +43,20 @@ const App: React.FC = () => {
               />;
     case 'numTracksScreen':
       return <NumTracksScreen 
-                handleScreenChange={() => setCurrentScreen('playListScreen')} 
+                handleScreenChange={() => setCurrentScreen('createScreen')} 
                 setNumTracks={setNumTracks}
                 numTracks={numTracks}
               />;
-    case 'playListScreen':
-      return <PlaylistScreen />;
+    case 'createScreen':
+      return <CreateScreen 
+                handleScreenChange={() => setCurrentScreen('playlistScreen')}
+               />;
+    case 'playlistScreen':
+      return <PlayListScreen 
+                energyLevel={energyLevel!}
+                selectedGenres={selectedGenres}
+                numTracks={numTracks!}             
+             />;
     default:
       return <FirstScreen handleScreenChange={() => setCurrentScreen('energyScreen')} />;;
   }
