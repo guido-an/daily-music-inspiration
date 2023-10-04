@@ -1,12 +1,11 @@
 import React from 'react';
-import { useSpotifyGenres } from '../../hooks/useSpotifyGenres';
-import GenreItem from '../GenreItem/GenreItem';
+import { useSpotifyGenres } from '../../../../hooks/useSpotifyGenres';
 
-interface DisplayGenresProps {
+interface GenresFiltersProps {
   handleGenreClick: (genre: string) => void
 }
 
-const DisplayGenres:React.FC<DisplayGenresProps> = ({ handleGenreClick }) => {
+const GenresFilters:React.FC<GenresFiltersProps> = ({ handleGenreClick }) => {
     const { genres, error, isLoading } = useSpotifyGenres();
 
   if (isLoading) {
@@ -21,11 +20,11 @@ const DisplayGenres:React.FC<DisplayGenresProps> = ({ handleGenreClick }) => {
       <p>Select your style</p>
       <ul>
       {genres.map((genre: string, index: number) => (
-          <GenreItem key={genre} genre={genre} handleGenreClick={handleGenreClick} />
+          <p onClick={()=>handleGenreClick(genre)}>{genre}</p>
         ))}
       </ul>
     </div>
   );
 }
 
-export default DisplayGenres;
+export default GenresFilters;

@@ -1,4 +1,4 @@
-import { fetcher } from './utils/apiUtils';
+import { fetcher } from '../utils/apiUtils';
 
 export const swrConfig = {
     fetcher,
