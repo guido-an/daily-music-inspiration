@@ -9,7 +9,9 @@ interface FirstScreenProps {
 const FirstScreen: React.FC<FirstScreenProps> = ({handleScreenChange}) => {
    return(
     <>
-    <Title titleText='First screen' />
+    <Title titleText='Get your daily music ispiration' />
+    <p>Find the feeling you were looking for. The music app you didn't know you needed it.</p>
+    <p>Easy, fast and smart.</p>
     <Button handleScreenChange={handleScreenChange} buttonText="Let's start" />
     </>
    )
