@@ -16,7 +16,7 @@ const FirstScreen: React.FC<FirstScreenProps> = ({ handleScreenChange }) => {
   return (
     <>
       <Title titleText='Get your daily music inspiration' />
-      <Subtitle subtitleText="The feeling you were looking for. The music app you didn't know you needed it." />
+      <Subtitle subtitleText="The sound you were looking for. Discover new songs and artists based on your mood and tastes." />
       <SubtitleContainer>
         <Subtitle subtitleText="Easy, fast and smart." />
       </SubtitleContainer>

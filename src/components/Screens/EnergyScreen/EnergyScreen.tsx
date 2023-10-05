@@ -17,7 +17,7 @@ const EnergyScreen: React.FC<EnergyScreenProps> = ({
 }) => {
    return(
     <>
-     <Title titleText='How are you feeling now?' />
+     <Title titleText='How do you feel now?' />
      <EnergyFilters 
          energyLevel={energyLevel} 
          setEnergyLevel={setEnergyLevel}

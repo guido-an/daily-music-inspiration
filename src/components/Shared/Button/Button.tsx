@@ -8,7 +8,7 @@ interface ButtonProps {
 }
 
 const StyledButton = styled.button`
-  background-color: ${({theme}) => theme.colors.secondary};   
+  background-color: ${({theme, disabled }) => disabled ? '#f7f7f7' : theme.colors.secondary};   
   color: ${({theme}) => theme.colors.primary};   
   padding: 0.75rem 1rem;
   border: none;
@@ -18,12 +18,19 @@ const StyledButton = styled.button`
   width: 100%;
   max-width: 30rem;
   &:hover {
-    background-color: ${({theme}) => theme.colors.secondaryHover};   
+    background-color: ${({theme, disabled}) => !disabled && theme.colors.secondaryHover};   
   }
 `;
 
 const Button: React.FC<ButtonProps> = ({ handleScreenChange, buttonText, disabled }) => {
-  return <StyledButton onClick={handleScreenChange} disabled={disabled}>{buttonText}</StyledButton>;
+  return (
+        <StyledButton 
+            onClick={handleScreenChange} 
+            disabled={disabled}
+         >
+            {buttonText}
+        </StyledButton>
+  )
 };
 
 export default Button;

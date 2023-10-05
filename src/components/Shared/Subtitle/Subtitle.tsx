@@ -8,6 +8,7 @@ interface SubtitleProps {
 const StyledTitle = styled.p`
     color: ${({theme}) => theme.colors.text}; 
     line-height: 1.5;
+    max-width: 30rem;
 `;
 
 const Subtitle: React.FC<SubtitleProps> = ({ subtitleText }) => {
