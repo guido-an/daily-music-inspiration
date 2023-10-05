@@ -13,7 +13,8 @@ const StyledOption = styled.p`
     background-color: ${({theme}) => theme.colors.lightYellow};
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
-    border-radius: 0.25rem;
+    border-radius:${({theme}) => theme.borderRadius};   
+    text-transform: capitalize;
 
     &.selected {
         background-color: ${({theme}) => theme.colors.darkYellow};

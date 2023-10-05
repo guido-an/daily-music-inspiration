@@ -3,6 +3,7 @@ import Title from '../../Shared/Title/Title'
 import Button from '../../Shared/Button/Button'
 import EnergyFilters from './EnergyFilters/EnergyFilters'
 import { EnergyLevel } from '../../../types/enums'
+import ProgressBar from '../../Shared/ProgressBar/ProgressBar'
 
 interface EnergyScreenProps {
     handleScreenChange: () => void;
@@ -17,6 +18,7 @@ const EnergyScreen: React.FC<EnergyScreenProps> = ({
 }) => {
    return(
     <>
+     <ProgressBar currentStep={1} />
      <Title titleText='How do you feel now?' />
      <EnergyFilters 
          energyLevel={energyLevel} 

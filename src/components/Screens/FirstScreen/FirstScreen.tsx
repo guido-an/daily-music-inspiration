@@ -10,6 +10,8 @@ interface FirstScreenProps {
 
 const SubtitleContainer = styled.div`
   margin-top: 5rem; 
+  position: relative;
+  top: 1.5rem;
 `;
 
 const FirstScreen: React.FC<FirstScreenProps> = ({ handleScreenChange }) => {

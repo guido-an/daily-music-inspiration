@@ -12,11 +12,12 @@ const StyledButton = styled.button`
   color: ${({theme}) => theme.colors.primary};   
   padding: 0.75rem 1rem;
   border: none;
-  border-radius: 0.25rem;
+  border-radius:${({theme}) => theme.borderRadius};   
   cursor: pointer;
   font-weight: 600;
   width: 100%;
   max-width: 30rem;
+  margin-top: 1.5rem;
   &:hover {
     background-color: ${({theme, disabled}) => !disabled && theme.colors.secondaryHover};   
   }

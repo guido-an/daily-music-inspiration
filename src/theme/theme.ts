@@ -6,6 +6,7 @@ export const theme = {
       text: '#394649',
       lightYellow: '#fff2d7',
       darkYellow: '#ffdb91'
-    }
+    },
+    borderRadius: '0.25rem'
   };
   
