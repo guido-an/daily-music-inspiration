@@ -16,7 +16,6 @@ const StyledButton = styled.button`
   cursor: pointer;
   font-weight: 600;
   width: 100%;
-  max-width: 30rem;
   margin-top: 1.5rem;
   &:hover {
     background-color: ${({theme, disabled}) => !disabled && theme.colors.secondaryHover};   

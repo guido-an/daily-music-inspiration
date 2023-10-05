@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 interface OptionItemProps {
-    optionText: string;
+    optionText: string | number;
     selected: boolean;
 }
 

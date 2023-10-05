@@ -7,6 +7,7 @@ interface TitleProps {
 
 const StyledTitle = styled.h1`
     color: ${({theme}) => theme.colors.primary}; 
+    max-width: 30rem;
 `;
 
 const Title: React.FC<TitleProps> = ({ titleText }) => {

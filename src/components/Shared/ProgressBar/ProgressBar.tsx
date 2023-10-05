@@ -20,7 +20,7 @@ const FilledBar = styled.div<{ width: string }>`
 `;
 
 const ProgressBar: React.FC<ProgressBarProps> = ({ currentStep }) => {
-  const progress = (currentStep / 4) * 100;
+  const progress = (currentStep / 5) * 100;
 
   return (
     <StyledProgressBar>

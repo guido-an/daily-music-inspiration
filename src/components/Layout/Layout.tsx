@@ -11,6 +11,11 @@ const StyledLayout = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media (min-width: 768px) {
+    margin: 4rem 20rem 6rem;
+  }
+  
 `;
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {

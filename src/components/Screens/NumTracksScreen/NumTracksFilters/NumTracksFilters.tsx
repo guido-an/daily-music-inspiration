@@ -1,30 +1,29 @@
 import React, { Dispatch, SetStateAction } from 'react';
+import OptionItem from '../../../Shared/OptionItem/OptionItem';
 
 interface NumTracksFiltersProps {
   setNumTracks: Dispatch<SetStateAction<number | null>>;
+  numTracks: number | null
 }
 
-const NumTracksFilters: React.FC<NumTracksFiltersProps> = ({ setNumTracks }) => {
-  const trackOptions = [10, 15, 20, 25, 30];
+const NumTracksFilters: React.FC<NumTracksFiltersProps> = ({ setNumTracks, numTracks }) => {
+  const trackOptions = [2, 4, 6, 8];
 
   const handleTrackClick = (track: number) => {
     setNumTracks(track);
   };
 
   return (
-    <div>
-      <label>How many tracks?</label>
-      <div className="track-options">
-        {trackOptions.map((track) => (
+      <div>
+        {trackOptions.map((trackNum) => (
           <div
-            key={track}
-            onClick={() => handleTrackClick(track)}
+            key={trackNum}
+            onClick={() => handleTrackClick(trackNum)}
           >
-            {track}
+            <OptionItem optionText={trackNum} selected={numTracks === trackNum}/>
           </div>
         ))}
       </div>
-    </div>
   );
 };
 

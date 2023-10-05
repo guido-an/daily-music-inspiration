@@ -19,10 +19,10 @@ const App: React.FC = () => {
       setSelectedGenres((prevSelectedGenres) =>
         prevSelectedGenres.filter((selectedGenre) => selectedGenre !== genre)
       );
-    } else if (selectedGenres.length < 5) {
+    } else if (selectedGenres.length < 3) {
       setSelectedGenres((prevSelectedGenres) => [...prevSelectedGenres, genre]);
     } else {
-      alert('You can select up to 5 genres.');
+      alert('You can select up to 3 genres.');
     }
   };
 
