@@ -6,6 +6,7 @@ import GenresScreen from './components/Screens/GenresScreen/GenresScreen';
 import NumTracksScreen from './components/Screens/NumTracksScreen/NumTracksScreen';
 import CreateScreen from './components/Screens/CreateScreen/CreateScreen';
 import PlayListScreen from './components/Screens/PlaylistScreen/PlaylistScreen';
+import Layout from './components/Layout/Layout';
 
 const App: React.FC = () => {
   const [currentScreen, setCurrentScreen] = useState<string>('firstScreen');
@@ -63,9 +64,9 @@ const App: React.FC = () => {
 };
 
   return (
-    <>
+    <Layout>
     {renderScreen()}
-    </> 
+    </Layout> 
   );
 };
 
