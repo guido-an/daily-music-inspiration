@@ -6,19 +6,19 @@ interface LayoutProps {
 }
 
 const StyledLayout = styled.div`
-   margin: 2rem;
+  margin: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <StyledLayout>
-      <header>
-         progress bar here
-      </header>
-      <main>
-        {children}
-      </main>
-      <footer/>
+      <header></header>
+      <main>{children}</main>
+      <footer></footer>
     </StyledLayout>
   );
 };

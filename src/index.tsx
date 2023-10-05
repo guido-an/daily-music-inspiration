@@ -7,8 +7,6 @@ import { swrConfig } from './config/swrConfig';
 import { theme } from './theme/theme';
 import { ThemeProvider } from 'styled-components'; 
 
-console.log(theme, 'theme')
-
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
