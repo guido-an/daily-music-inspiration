@@ -1,12 +1,13 @@
 import React, { Dispatch, SetStateAction } from 'react';
 import { EnergyLevel } from '../../../../types/enums';
+import OptionItem from '../../../Shared/OptionItem/OptionItem';
 
 interface EnergyFiltersProps {
     energyLevel: EnergyLevel | null; 
     setEnergyLevel: Dispatch<SetStateAction<EnergyLevel | null>>;
 }
 
-const EnergyFilters: React.FC<EnergyFiltersProps> = ({ setEnergyLevel }) => {
+const EnergyFilters: React.FC<EnergyFiltersProps> = ({ energyLevel, setEnergyLevel }) => {
     
     const energyOptions = [
         { value: EnergyLevel.SUPER_CHILL, label: 'Super Chill 😎' },
@@ -15,17 +16,19 @@ const EnergyFilters: React.FC<EnergyFiltersProps> = ({ setEnergyLevel }) => {
     ];
 
     return (
-        <div>
-            <label>How do you feel?</label>
-                {energyOptions.map((option) => (
-                    <div
-                        key={option.value}
-                        onClick={() => setEnergyLevel(option.value)}
-                    >
-                        {option.label}
-                    </div>
-                ))}
-        </div>
+        <>
+          {energyOptions.map((option) => (
+              <div
+                  key={option.value}
+                  onClick={() => setEnergyLevel(option.value)}
+              >
+                  <OptionItem
+                    optionText={option.label}
+                    selected={option.value === energyLevel}
+                  />
+              </div>
+          ))}
+        </>
     );
 };
 

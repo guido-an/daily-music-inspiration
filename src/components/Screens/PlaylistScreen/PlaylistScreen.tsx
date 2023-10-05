@@ -1,11 +1,35 @@
 import React from 'react';
 import { useSpotifyRecommendations } from '../../../hooks/useSpotifyRecommendations';
+import Title from '../../Shared/Title/Title';
+import Subtitle from '../../Shared/Subtitle/Subtitle';
+import styled from 'styled-components';
+import InfoText from '../../Shared/InfoText/InfoText';
+import ProgressBar from '../../Shared/ProgressBar/ProgressBar';
 
 interface PlaylistScreenProps {
   energyLevel: number;
   selectedGenres: string[];
   numTracks: number;
 }
+
+const StyledPlaylistContainer = styled.div`
+  margin-bottom: 2.5rem;
+  border: 1px solid #fafafa;
+  padding: 1rem;
+  border-radius: ${({ theme }) => theme.borderRadius};
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+`;
+
+const StyledTrackName = styled.h3`
+  color: ${({ theme }) => theme.colors.primary};
+  margin-bottom: 0.5rem;
+`;
+
+const StyledArtists = styled.div`
+  color: #e5c571; 
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+`;
 
 const PlaylistScreen: React.FC<PlaylistScreenProps> = ({
   energyLevel,
@@ -18,8 +42,6 @@ const PlaylistScreen: React.FC<PlaylistScreenProps> = ({
     numTracks,
   });
 
-  console.log(recommendations)
-
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -29,26 +51,23 @@ const PlaylistScreen: React.FC<PlaylistScreenProps> = ({
 
   return (
     <div>
-      <h1>Your Playlist</h1>
-      <ul>
-        {recommendations.map((track: any) => {
-            const { id, external_urls, name, artists, album, preview_url } = track
-            return(
-                <li key={id}>
-                  <a
-                    href={external_urls}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {name}
-                  </a>
-                  <p>Artists: {artists.map((artist: any) => artist.name).join(', ')}</p>
-                  <p>Album: {album.name}</p>
-                  <audio controls src={preview_url}></audio>
-                </li>
-              )
-        })}
-      </ul>
+      <ProgressBar currentStep={5} />
+      <Title titleText="Here's your daily music inspiration!" />
+      <Subtitle subtitleText={`We found ${recommendations.length} songs for you.`} />
+      {recommendations.length === 0 ? (
+        <InfoText infoText='Sorry no songs found with these criteria, try to search again.' />
+      ) : (
+        recommendations.map((track: any) => {
+          const { id, name, artists, preview_url } = track;
+          return (
+            <StyledPlaylistContainer key={id}>
+              <StyledTrackName>{name}</StyledTrackName>
+              <StyledArtists>{artists.map((artist: any) => artist.name).join(', ')}</StyledArtists>
+              <audio controls src={preview_url}></audio>
+            </StyledPlaylistContainer>
+          );
+        })
+      )}
     </div>
   );
 };

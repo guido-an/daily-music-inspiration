@@ -2,6 +2,8 @@ import React from 'react'
 import Title from '../../Shared/Title/Title'
 import Button from '../../Shared/Button/Button'
 import GenresFilters from './GenresFilters/GenresFilters'
+import ProgressBar from '../../Shared/ProgressBar/ProgressBar';
+import InfoText from '../../Shared/InfoText/InfoText';
 
 interface GenresScreenProps { 
     handleScreenChange: () => void;
@@ -16,8 +18,13 @@ const GenresScreen: React.FC<GenresScreenProps> = ({
 }) => {
    return(
     <>
-     <Title titleText='Genres screen' />
-     <GenresFilters handleGenreClick={handleGenreClick} />
+     <ProgressBar currentStep={2} />
+     <Title titleText='Which style would you like to listen today?' />
+     <InfoText infoText='You can select up to 3 genres' />
+     <GenresFilters 
+         handleGenreClick={handleGenreClick} 
+         selectedGenres={selectedGenres}
+      />
      <Button 
         handleScreenChange={handleScreenChange} 
         buttonText="Continue" 

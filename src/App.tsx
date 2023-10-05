@@ -6,6 +6,7 @@ import GenresScreen from './components/Screens/GenresScreen/GenresScreen';
 import NumTracksScreen from './components/Screens/NumTracksScreen/NumTracksScreen';
 import CreateScreen from './components/Screens/CreateScreen/CreateScreen';
 import PlayListScreen from './components/Screens/PlaylistScreen/PlaylistScreen';
+import Layout from './components/Layout/Layout';
 
 const App: React.FC = () => {
   const [currentScreen, setCurrentScreen] = useState<string>('firstScreen');
@@ -18,10 +19,10 @@ const App: React.FC = () => {
       setSelectedGenres((prevSelectedGenres) =>
         prevSelectedGenres.filter((selectedGenre) => selectedGenre !== genre)
       );
-    } else if (selectedGenres.length < 5) {
+    } else if (selectedGenres.length < 3) {
       setSelectedGenres((prevSelectedGenres) => [...prevSelectedGenres, genre]);
     } else {
-      alert('You can select up to 5 genres.');
+      alert('You can select up to 3 genres.');
     }
   };
 
@@ -63,9 +64,9 @@ const App: React.FC = () => {
 };
 
   return (
-    <>
-    {renderScreen()}
-    </> 
+    <Layout>
+      {renderScreen()}
+    </Layout> 
   );
 };
 
