@@ -1,11 +1,16 @@
-import React from 'react'
+import React from 'react';
+import styled from 'styled-components';
 
 interface TitleProps {
-    titleText: string
+    titleText: string;
 }
 
-const Title: React.FC<TitleProps> = ({titleText}) => {
-   return <h1>{titleText}</h1>
-}
+const StyledTitle = styled.h1`
+    color: ${({theme}) => theme.colors.primary}; 
+`;
 
-export default Title
+const Title: React.FC<TitleProps> = ({ titleText }) => {
+    return <StyledTitle>{titleText}</StyledTitle>;
+};
+
+export default Title;

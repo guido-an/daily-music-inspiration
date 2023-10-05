@@ -65,7 +65,7 @@ const App: React.FC = () => {
 
   return (
     <Layout>
-    {renderScreen()}
+      {renderScreen()}
     </Layout> 
   );
 };
