@@ -19,7 +19,7 @@ const GenresScreen: React.FC<GenresScreenProps> = ({
    return(
     <>
      <ProgressBar currentStep={2} />
-     <Title titleText='Which style would you like to listen today?' />
+     <Title titleText='Which music would you like to listen today?' />
      <InfoText infoText='You can select up to 3 genres' />
      <GenresFilters 
          handleGenreClick={handleGenreClick} 

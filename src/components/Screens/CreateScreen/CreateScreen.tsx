@@ -20,7 +20,7 @@ const CreateScreen: React.FC<CreateScreenProps> = ({ handleScreenChange }) => {
      <Title titleText="Thanks for sharing your preferences!" /> 
      <Subtitle subtitleText="Let's check if the following songs might be for you."/>
      <ButtonContainer>
-       <Button buttonText="Get your ispiration" handleScreenChange={handleScreenChange}  />
+       <Button buttonText="Get your inspiration" handleScreenChange={handleScreenChange}  />
      </ButtonContainer>
     </>
    )
