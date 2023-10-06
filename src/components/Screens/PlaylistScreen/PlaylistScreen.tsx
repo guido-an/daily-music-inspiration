@@ -26,7 +26,7 @@ const StyledTrackName = styled.h3`
 `;
 
 const StyledArtists = styled.div`
-  color: #e5c571; 
+  color: #e5c571;
   font-size: 0.9rem;
   margin-bottom: 1rem;
 `;
@@ -42,6 +42,13 @@ const PlaylistScreen: React.FC<PlaylistScreenProps> = ({
     numTracks,
   });
 
+  const subtitleText =
+    recommendations.length === 0
+      ? 'found no songs'
+      : recommendations.length === 1
+      ? 'found 1 song'
+      : `found ${recommendations.length} songs`;
+
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -53,9 +60,9 @@ const PlaylistScreen: React.FC<PlaylistScreenProps> = ({
     <div>
       <ProgressBar currentStep={5} />
       <Title titleText="Here's your daily music inspiration!" />
-      <Subtitle subtitleText={`We found ${recommendations.length} songs for you.`} />
+      <Subtitle subtitleText={`We ${subtitleText} for you.`} />
       {recommendations.length === 0 ? (
-        <InfoText infoText='Sorry no songs found with these criteria, try to search again.' />
+        <InfoText infoText='Sorry, no songs found with these criteria. Please try again.' />
       ) : (
         recommendations.map((track: any) => {
           const { id, name, artists, preview_url } = track;

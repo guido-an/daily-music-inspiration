@@ -21,9 +21,7 @@ const StyledLayout = styled.div`
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <StyledLayout>
-      <header></header>
       <main>{children}</main>
-      <footer></footer>
     </StyledLayout>
   );
 };
